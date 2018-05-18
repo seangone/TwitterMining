@@ -5,4 +5,6 @@ cp ./TwitterMining/Server/Deploy/TwitterMining.war ./tomcat/webapps
 
 cd pipenv
 pipenv shell
-pip install -r ../TwitterMining/TwitterCrawler/requirements.txt
+cd ..
+pip install -r ./TwitterMining/TwitterCrawler/requirements.txt
+nohup python3 ./TwitterMining/TwitterCrawler/Scheduler.py > log.txt 2>&1 &

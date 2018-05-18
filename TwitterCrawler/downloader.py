@@ -39,7 +39,7 @@ class downloader(object):
         # log
         record = "Trends Crawled Successful Time {} Size {}".format(timestamp, len(res))
         print(record)
-        print(res)
+        # print(res)
 
     def get_trends(self):
         collection_trends = self.db['trends']
@@ -54,6 +54,7 @@ class downloader(object):
         for d in res:
             latest_time = d['t']
         record = "Got lastest time in DB: {}".format(latest_time)
+        print(record)
         res = collection_trends.find(
             {"crawled_time":latest_time},
             {'_id': 0, 'name': 1, 'url': 1, "tweet_volume": 1,

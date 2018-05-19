@@ -28,7 +28,7 @@ class downloader(object):
         # call api
         res = self.api.trends_place(woeid)[0]['trends']
         collection_tweets = self.db['trends']
-        timestamp = datetime.now()
+        timestamp = datetime.utcnow()
         for i, t in enumerate(res):
             t['crawled_time'] = timestamp
             t['crawled_order'] = i
@@ -37,7 +37,7 @@ class downloader(object):
         collection_tweets.insert(res)  # add _id to the dict
 
         # log
-        record = "Trends Crawled Successful Time {} Size {}".format(timestamp, len(res))
+        record = "Trends Crawled Successful Time: UTC {} Size: {}".format(timestamp, len(res))
         print(record)
         # print(res)
 
@@ -69,3 +69,5 @@ class downloader(object):
 if __name__ == "__main__":
     d = downloader()
     d.download_trends()
+
+    d.get_trends()

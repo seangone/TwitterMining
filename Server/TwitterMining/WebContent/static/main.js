@@ -27,8 +27,36 @@ var CompTrendItem = {
 var CompTime = {
 	props: ['timestamp'],
 	template: '<p class="card-text float-left">'
-				+'<small class="text-muted">{{timestamp}}'
-				+'</small></p>'	
+				+'<small class="text-muted">Updated Time: {{getTimeDiff(timestamp)}}'
+				+'</small></p>'	,
+	methods: {
+		getTimeDiff: function(t) {
+			var diffs = (Date.now() - Date.parse(dataTrends.timestamp))/1000; // seconds
+			if (diffs < 0) {
+				return "";
+			}
+			if (diffs < 60) {
+				return "Just now";
+			}
+			var diffm = diffs / 60;
+			if (diffm == 1){
+				return "A minute ago";
+			} else if (diffm < 60) {
+				return Math.floor(diffm) + " minutes ago";
+			}
+			var diffh = diffm / 60;
+			if (diffh == 1){
+				return "A hour ago";
+			} else if (diffh < 24) {
+				return Math.floor(diffh) + " hours ago";
+			}
+			var diffd = diffh / 24;
+			if (diffd == 1){
+				return "A day ago";
+			}
+			return Math.floor(diffd) + " days ago";
+		}
+	}
 };
 
 var CompTrendsGroup = {

@@ -1,7 +1,37 @@
 from datetime import datetime
 from threading import Timer
 import time
+import heapq
+
+from util.logger import get_logger
+logger = get_logger()
+
 from downloader import *
+
+class Scheduler(object):
+
+    def __init__(self):
+        self.q = []
+        heapq.heapify(self.q)
+
+    def deserialize_from_file(self, filepath):
+        pass
+
+    def serialize_to_file(self, filepath):
+        pass
+
+    def put(self, s):
+        assert isinstance(s, dict)
+        heapq.heappush(self.q, s)
+
+    def put_many(self, schedules):
+        for s in schedules:
+            self.put(s)
+
+    def next(self):
+        return heapq.heappop(self.q)
+
+
 
 def timedTask():
     '''
@@ -13,7 +43,7 @@ def timedTask():
 
 def task():
     print("task executed at:", datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
-    d = downloader()
+    d = Downloader()
     d.download_trends()
     timedTask()
 

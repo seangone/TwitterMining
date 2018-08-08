@@ -1,2 +1,0 @@
-
-spark-submit --jars spark-streaming-twitter_2.11-2.0.0.jar,twitter4j-core-4.0.4.jar,twitter4j-stream-4.0.4.jar,mongo-java-driver-3.2.2.jar,mongo-spark-connector_2.11-2.0.0.jar --class com.twittermining.app.TwitterMining  Computing.jar

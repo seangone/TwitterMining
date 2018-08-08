@@ -73,9 +73,13 @@ if __name__ == '__main__':
     from util.config import twitter_api_config, mongodb_config
     api = config_tweepy(twitter_api_config)
     db = config_mongo(mongodb_config)
+
+    # connect db and get keywords
+
+
+    # start a twitter stream
     counter = windowcounter(600)
     myStreamListener = MyStreamListener(db, counter)
-    # start a stream
     myStream = tweepy.Stream(auth=api.auth, listener=myStreamListener)
     myStream.filter(track=['Donald Trump'])
     # myStream.filter(follow=["2211149702"])

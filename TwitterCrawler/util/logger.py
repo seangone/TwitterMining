@@ -1,10 +1,19 @@
+import os
 import logging
 from logging.handlers import TimedRotatingFileHandler
 
+def mkdir(path):
+    folder = os.path.exists(path)
+
+    if not folder:
+        os.makedirs(path)
+
+
 def get_logger():
+    mkdir("./app_log")
     log = logging.getLogger("logger.log")
     if not log.handlers:
-        file_hdlr = TimedRotatingFileHandler(filename="log/logger.log", when="D", interval=10, backupCount=2)
+        file_hdlr = TimedRotatingFileHandler(filename="./app_log/logger.log", when="D", interval=10, backupCount=2)
         file_hdlr.setLevel(logging.DEBUG)
         stream_hdlr = logging.StreamHandler()
         # stream_hdlr.setLevel(logging.DEBUG)

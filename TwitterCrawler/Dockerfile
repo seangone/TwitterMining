@@ -9,6 +9,8 @@ ADD . /app
 
 # Install any needed packages specified in requirements.txt
 RUN pip install --trusted-host pypi.python.org -r requirements.txt
+RUN python3 -m nltk.downloader punkt
+RUN python3 -m nltk.downloader vader_lexicon
 
 # Run app.py when the container launches
 CMD ["python", "app.py"]

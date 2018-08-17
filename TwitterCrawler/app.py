@@ -148,7 +148,7 @@ if __name__ == '__main__':
         # delete old
         num_deleted = deletedb_old(db, RESIST_TIME)
         logger.info("deleted old scores: {}".format(num_deleted))
-        #
+        # check tasks of topics
         newrouter = readdb_topics(db)
         if router is not None and newrouter == router:
             logger.info("Topics check, nothing changes, keywords: {}"

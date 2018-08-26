@@ -39,7 +39,7 @@ I got problems with spark deployment on EC2 (not enough budget for Hadoop) so I 
 
 ### Data Flow
 
-![dataflow](./dataflow.png?raw=true)
+![dataflow](./dataflow.png?raw=true){:width="50%"}
 
 [This is a flowchart of data flow, please click on it](https://mermaidjs.github.io/mermaid-live-editor/#/view/eyJjb2RlIjoiZ3JhcGggVERcbkEoU3RhcnQ6IFR3aXR0ZXIgU3RyZWFtaW5nIEFQSSkgLS0-fHVudGFnZ2VkIHR3ZWV0c3wgQyhzKVxuQihFbmQ6IE1vbmdvREIpIC0tPiB8dG9waWMga2V5d29yZHMgYW5kIGlkc3wgQ1xuQ3tUd2l0dGVyQ3Jhd2xlcn1cbkMgLS0-IHxrZXl3b3JkcyBhbmQgaWRzfCBBXG5DIC0tPnx1bnRhZ2dlZCB0d2VldHN8IERbVG9waWMgVGFnZ2luZ11cbkMgLS0-fHVudGFnZ2VkIHR3ZWV0c3wgRVtTZW50aW1lbnQgRXN0aW1hdGluZ11cbkQgLS0-IHx0YWdnZWQgdHdlZXRzfCBGW1JvdXRlcl1cbkUgLS0-IHxzY29yZWQgdHdlZXRzfCBGW1JvdXRlcl1cbkYgLS0-IHx0b3BpYyBzZW50aW1lbnRhbCBzY29yZXN8IEIyKEVuZDogTW9uZ29EQikiLCJtZXJtYWlkIjp7InRoZW1lIjoiZGVmYXVsdCJ9fQ)
 

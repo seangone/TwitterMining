@@ -1,21 +1,22 @@
 # TwitterMining
 
-
-[http://18.144.22.172/](http://18.144.22.172/) 
+- Showcase
+    - [http://18.144.22.172/](http://18.144.22.172/)
 
 I got problems with spark deployment on EC2 (not enough budget for Hadoop) so I am now working on the showcase using Python.
 
 ## Frontend
 
-- using **Vue.js** to do visualization
+- using **Vue.js** to bind model with view
 - use **AJAX** to communicate with back-end
 
 ## Backend
 
-- use tweets from **Twitter Streaming** API
-    - use NLTK to calculate sentimental score
-    - Topic-related PageRank
+- collect tweets from **Twitter Streaming** API and store them on **MongoDB**
+    - use **NLTK** to calculate sentimental score
+    - **Topic-related PageRank**
         - I planned to use **Spark** to develop but now I am changing it to **Python**
+
 - use **Restful API** to manage topics to be tracked
     - `/topics`
         - `GET`
@@ -26,7 +27,7 @@ I got problems with spark deployment on EC2 (not enough budget for Hadoop) so I 
         - `DELETE`
     - `/topics/:topic_id/score`
         - `GET`
-- use **Reactive Programming** with **Spring Boot 2.0** to construct the backend
+- construct a backend via **Reactive Programming** with **Spring Boot 2.0**
     - Spring Boot 2 : for Bootstrapping Project
     - Spring Webflux : for Reactive Web Application
     - Spring Reactive Data MongoDB : for Reactive Persistence in MongoDB.
@@ -36,10 +37,9 @@ I got problems with spark deployment on EC2 (not enough budget for Hadoop) so I 
     - `@Repository` is the layer for data access
     - `@Service` defines the business logic, that is, how we can use the data access layer
     - `@Controller` defines how we wrap the data and present them to HTTP requests sent via Restful API
+- Deployed with **Docker** on **Amazon EC2**
 
 ### Data Flow
-
-![dataflow](./dataflow.png?raw=true){:width="50%"}
 
 <div align=center><img width="450"  src="./dataflow.png?raw=true"/></div>
 

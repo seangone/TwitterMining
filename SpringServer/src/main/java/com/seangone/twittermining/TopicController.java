@@ -1,6 +1,7 @@
 package com.seangone.twittermining;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -21,10 +22,11 @@ public class TopicController {
     return s.findAll();
   }
 
-//  @PostMapping()
-//  public Mono<City> saveCity(@RequestBody City city) {
-//    return cityHandler.save(city);
-//  }
+  @PostMapping(value = "/{id}")
+  @ResponseStatus(HttpStatus.CREATED)
+  public Mono<Topic> saveOneTopic(@RequestBody Topic t) {
+    return s.saveOne(t);
+  }
 //
 //  @PutMapping()
 //  public Mono<City> modifyCity(@RequestBody City city) {

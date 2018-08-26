@@ -10,15 +10,15 @@ import java.util.ArrayList;
 
 @Service
 public class TopicService {
-  private final TopicRepository s;
+  private final TopicRepository r;
 
   @Autowired
-  public TopicService(TopicRepository s) {
-    this.s = s;
+  public TopicService(TopicRepository r) {
+    this.r = r;
   }
 
   public Mono<Topic> createTopic(Topic t) {
-    return s.insert(t);
+    return r.insert(t);
   }
 
   public Mono<Topic> getSampleTopic(String _id){
@@ -29,15 +29,19 @@ public class TopicService {
   }
 
   public Mono<Topic> findById(String _id) {
-    return s.findById(_id);
+    return r.findById(_id);
   }
 
   public Mono<String> deleteById(String _id) {
-    s.deleteById(_id);
+    r.deleteById(_id);
     return Mono.create(cityMonoSink -> cityMonoSink.success(_id));
   }
 
+  public Mono<Topic> saveOne(Topic t) {
+    return r.save(t);
+  }
+
   public Flux<Topic> findAll() {
-    return s.findAll();
+    return r.findAll();
   }
 }

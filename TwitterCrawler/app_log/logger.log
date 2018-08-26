@@ -1,0 +1,8 @@
+2018-08-09 18:34:11,421 - INFO - Tweepy Config - {'consumer_key': 'EDEHVD09dN7cdIJMPr4D47eYp', 'consumer_secret': 'jTQFOvigDTHu4Lusb7rJ3kCX0RkimTEX1iZaFl0MloKMuhB1Tb', 'access_token': '3932937014-ULiqX7aTSxpHEQOHEncUL2w6YT3tEzvbyYpseea', 'access_token_secret': 'CdGTXhyJX9qkBO3MeqRAZne6Cv4MPPKWDMlUuMz3DTNcV'}
+2018-08-09 18:34:11,422 - INFO - MongoDB Config Url - mongodb://localhost:20087/
+2018-08-09 18:34:11,434 - INFO - deleted old scores: {'n': 0, 'ok': 1.0}
+2018-08-09 18:34:11,457 - INFO - Topics initialized from DB: ['Trump', 'james', 'potus'], keywords: ['#trump', '#james', '#POTUS']
+2018-08-09 18:46:08,678 - INFO - Tweepy Config - {'consumer_key': 'EDEHVD09dN7cdIJMPr4D47eYp', 'consumer_secret': 'jTQFOvigDTHu4Lusb7rJ3kCX0RkimTEX1iZaFl0MloKMuhB1Tb', 'access_token': '3932937014-ULiqX7aTSxpHEQOHEncUL2w6YT3tEzvbyYpseea', 'access_token_secret': 'CdGTXhyJX9qkBO3MeqRAZne6Cv4MPPKWDMlUuMz3DTNcV'}
+2018-08-09 18:46:08,681 - INFO - MongoDB Config Url - mongodb://localhost:20087/
+2018-08-09 18:46:08,696 - INFO - deleted old scores: {'n': 0, 'ok': 1.0}
+2018-08-09 18:46:08,726 - INFO - Topics initialized from DB: ['Trump', 'james', 'potus'], keywords: ['#trump', '#james', '#POTUS']

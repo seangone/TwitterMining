@@ -1,1 +1,1 @@
-docker run -t seangone/tmserver
+docker run --name tmserver -it seangone/tmserver

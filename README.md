@@ -57,3 +57,10 @@ D --> |tagged tweets| F[Router]
 E --> |scored tweets| F[Router]
 F --> |topic sentimental scores| B2(End: MongoDB)
 ​```
+
+## Reference
+
+- [Spring Boot 2 MongoDB Reactive Programming](https://medium.com/@beladiyahardik7/spring-boot-2-mongodb-reactive-programming-b20a9a5bd6c)
+- [springboot2学习-webflux和mongodb](https://blog.csdn.net/j903829182/article/details/80288892)
+- [Building a RESTful Web Service with Spring Boot Actuator](https://spring.io/guides/gs/actuator-service/)
+- [Spring Boot with Docker](https://spring.io/guides/gs/spring-boot-docker/)

@@ -11,9 +11,9 @@ import java.util.List;
 @Document(collection = "topics")
 public class Topic {
   @Id
-  private final String _id;
-  private final List<String> keywords;
-  private final List<String> ids;
+  private String _id;
+  private List<String> keywords;
+  private List<String> ids;
 
 
   public Topic(String _id, List<String> keywords, List<String> ids) {

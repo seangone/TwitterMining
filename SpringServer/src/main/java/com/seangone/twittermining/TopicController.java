@@ -12,29 +12,30 @@ public class TopicController {
   @Autowired
   private TopicService s;
 
+  @GetMapping
+  public Flux<Topic> findAllTopics() {
+    return s.findAll();
+  }
+
+  @PostMapping
+  @ResponseStatus(HttpStatus.CREATED)
+  public Mono<Topic> saveOneTopic(@RequestBody Topic t) {
+    return s.saveOne(t);
+  }
+
   @GetMapping(value = "/{id}")
   public Mono<Topic> findTopicById(@PathVariable("id") String _id) {
     return s.findById(_id);
   }
 
-  @GetMapping(value = "")
-  public Flux<Topic> findAllTopics(@PathVariable("id") String _id) {
-    return s.findAll();
+  @PutMapping(value = "/{id}")
+  public Mono<Topic> updateTopic(@RequestBody Topic t, @PathVariable("id") String _id) {
+    return s.updateTopic(t, _id);
   }
-
-  @PostMapping(value = "/{id}")
-  @ResponseStatus(HttpStatus.CREATED)
-  public Mono<Topic> saveOneTopic(@RequestBody Topic t) {
-    return s.saveOne(t);
-  }
-//
-//  @PutMapping()
-//  public Mono<City> modifyCity(@RequestBody City city) {
-//    return cityHandler.modifyCity(city);
-//  }
 
   @DeleteMapping(value = "/{id}")
-  public Mono<String> deleteTopic(@PathVariable("id") String _id) {
+  public Mono<Boolean> deleteTopic(@PathVariable("id") String _id) {
     return s.deleteById(_id);
   }
+
 }

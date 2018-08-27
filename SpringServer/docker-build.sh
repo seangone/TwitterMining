@@ -1,1 +1,1 @@
-./mvnw install dockerfile:build
+sudo ./mvnw install dockerfile:build

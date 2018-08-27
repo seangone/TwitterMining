@@ -37,7 +37,6 @@ I got problems with spark deployment on EC2 (not enough budget for Hadoop) so I 
     - `@Repository` is the layer for data access
     - `@Service` defines the business logic, that is, how we can use the data access layer
     - `@Controller` defines how we wrap the data and present them to HTTP requests sent via Restful API
-- Deployed with **Docker** on **Amazon EC2**
 
 ### Data Flow
 
@@ -57,6 +56,14 @@ D --> |tagged tweets| F[Router]
 E --> |scored tweets| F[Router]
 F --> |topic sentimental scores| B2(End: MongoDB)
 ​```
+
+## Deployment
+
+- Deployed with **Docker** on **Amazon EC2**
+- Enviroment also deployed with **Docker**
+    - [MongoDB](https://github.com/docker-library/mongo)
+    - [Mongo-express](https://github.com/mongo-express/mongo-express-docker)
+    - [Docker Registry](https://docs.docker.com/registry/)
 
 ## Reference
 

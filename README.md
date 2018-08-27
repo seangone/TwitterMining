@@ -18,16 +18,21 @@ I got problems with spark deployment on EC2 (not enough budget for Hadoop) so I 
         - I planned to use **Spark** to develop but now I am changing it to **Python**
 
 - use **Restful API** to manage topics to be tracked
-    - `/topics`
+    - `/api/topics`
         - `GET`
-    - `/topics/:topic_id`
+    - `/api/topics/:topic_id`
         - `GET`
         - `POST` - create
         - `PUT` - substitude
         - `DELETE`
-    - `/topics/:topic_id/score`
+    - `/api/topics/:topic_id/score`
         - `GET`
-- construct a backend via **Reactive Programming** with **Spring Boot 2.0**
+- construct a Reactive web service with **Spring Boot 2.0**
+    - [What is Reactive Programming](https://en.wikipedia.org/wiki/Reactive_programming)
+    - [Reference](https://medium.com/exploring-code/what-is-reactive-programming-da37c1611382)
+
+    - > **Reactive programming** is a programming paradigm oriented around data flows and the propagation of change. This means that it should be possible to **express static or dynamic data flows with ease** in the programming languages used, and that the underlying execution model will **automatically propagate changes through the data flow**.
+    
     - Spring Boot 2 : for Bootstrapping Project
     - Spring Webflux : for Reactive Web Application
     - Spring Reactive Data MongoDB : for Reactive Persistence in MongoDB.

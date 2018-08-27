@@ -14,7 +14,7 @@ def get_logger():
     log = logging.getLogger("logger.log")
     if not log.handlers:
         file_hdlr = TimedRotatingFileHandler(filename="./app_log/logger.log", when="D", interval=10, backupCount=2)
-        file_hdlr.setLevel(logging.DEBUG)
+        file_hdlr.setLevel(logging.INFO)
         stream_hdlr = logging.StreamHandler()
         # stream_hdlr.setLevel(logging.DEBUG)
         formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')

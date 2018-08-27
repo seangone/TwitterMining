@@ -1,0 +1,1 @@
+docker build -t seangone/python36-tmenv ./

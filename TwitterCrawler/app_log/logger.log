@@ -1,8 +1,9 @@
-2018-08-09 18:34:11,421 - INFO - Tweepy Config - {'consumer_key': 'EDEHVD09dN7cdIJMPr4D47eYp', 'consumer_secret': 'jTQFOvigDTHu4Lusb7rJ3kCX0RkimTEX1iZaFl0MloKMuhB1Tb', 'access_token': '3932937014-ULiqX7aTSxpHEQOHEncUL2w6YT3tEzvbyYpseea', 'access_token_secret': 'CdGTXhyJX9qkBO3MeqRAZne6Cv4MPPKWDMlUuMz3DTNcV'}
-2018-08-09 18:34:11,422 - INFO - MongoDB Config Url - mongodb://localhost:20087/
-2018-08-09 18:34:11,434 - INFO - deleted old scores: {'n': 0, 'ok': 1.0}
-2018-08-09 18:34:11,457 - INFO - Topics initialized from DB: ['Trump', 'james', 'potus'], keywords: ['#trump', '#james', '#POTUS']
-2018-08-09 18:46:08,678 - INFO - Tweepy Config - {'consumer_key': 'EDEHVD09dN7cdIJMPr4D47eYp', 'consumer_secret': 'jTQFOvigDTHu4Lusb7rJ3kCX0RkimTEX1iZaFl0MloKMuhB1Tb', 'access_token': '3932937014-ULiqX7aTSxpHEQOHEncUL2w6YT3tEzvbyYpseea', 'access_token_secret': 'CdGTXhyJX9qkBO3MeqRAZne6Cv4MPPKWDMlUuMz3DTNcV'}
-2018-08-09 18:46:08,681 - INFO - MongoDB Config Url - mongodb://localhost:20087/
-2018-08-09 18:46:08,696 - INFO - deleted old scores: {'n': 0, 'ok': 1.0}
-2018-08-09 18:46:08,726 - INFO - Topics initialized from DB: ['Trump', 'james', 'potus'], keywords: ['#trump', '#james', '#POTUS']
+2018-08-27 04:15:45,896 - INFO - Tweepy Config - {'consumer_key': 'EDEHVD09dN7cdIJMPr4D47eYp', 'consumer_secret': 'jTQFOvigDTHu4Lusb7rJ3kCX0RkimTEX1iZaFl0MloKMuhB1Tb', 'access_token': '3932937014-ULiqX7aTSxpHEQOHEncUL2w6YT3tEzvbyYpseea', 'access_token_secret': 'CdGTXhyJX9qkBO3MeqRAZne6Cv4MPPKWDMlUuMz3DTNcV'}
+2018-08-27 04:15:45,902 - INFO - MongoDB Config Url - mongodb://18.144.22.172:20087/
+2018-08-27 04:15:46,693 - INFO - deleted old scores: {'n': 12, 'ok': 1.0}
+2018-08-27 04:15:46,832 - INFO - Topics initialized from DB: ['trump', 'james'], keywords: ['#trump', '#POTUS', '#jj']
+2018-08-27 04:20:24,911 - INFO - Tweepy Config - {'consumer_key': 'EDEHVD09dN7cdIJMPr4D47eYp', 'consumer_secret': 'jTQFOvigDTHu4Lusb7rJ3kCX0RkimTEX1iZaFl0MloKMuhB1Tb', 'access_token': '3932937014-ULiqX7aTSxpHEQOHEncUL2w6YT3tEzvbyYpseea', 'access_token_secret': 'CdGTXhyJX9qkBO3MeqRAZne6Cv4MPPKWDMlUuMz3DTNcV'}
+2018-08-27 04:20:24,915 - INFO - MongoDB Config Url - mongodb://18.144.22.172:20087/
+2018-08-27 04:20:25,336 - INFO - deleted old scores: {'n': 24, 'ok': 1.0}
+2018-08-27 04:20:25,370 - INFO - Topics initialized from DB: ['trump', 'james'], keywords: ['#trump', '#POTUS', '#jj']
+2018-08-27 04:22:25,314 - INFO - deleted old scores: {'n': 18, 'ok': 1.0}

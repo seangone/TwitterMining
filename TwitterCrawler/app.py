@@ -75,6 +75,9 @@ class topicrouter(object):
     def keywords(self):
         return [kw for k, v in self.topics.items() for kw in v['keywords']]
 
+    def ids(self):
+        return [kw for k, v in self.topics.items() for kw in v['ids']]
+
     def route(self, status):
         text = get_status_text(status)
         if text is None: return
@@ -91,7 +94,9 @@ class topicrouter(object):
 
     def __eq__(self, another):
         if not isinstance(another, topicrouter): return False
-        return self.names() == another.names()
+        return self.names() == another.names() and \
+               self.keywords() == another.keywords() and \
+               self.ids() == another.ids()
 
 
 class MyStreamListener(tweepy.StreamListener):

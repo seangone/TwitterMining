@@ -3,7 +3,7 @@
 - Showcase
     - [http://18.144.22.172/](http://18.144.22.172/)
 
-I got problems with spark deployment on EC2 (not enough budget for Hadoop) so I am now working on the showcase using Python.
+I got problems with spark deployment on EC2 (not enough budget for Hadoop) so I am now working on the part of calculating using pure Python.
 
 ## Frontend
 
@@ -25,19 +25,25 @@ I got problems with spark deployment on EC2 (not enough budget for Hadoop) so I 
         - `GET`
     - `/api/sentiments/:topic_id`
         - `GET`
+    - `/api/sentiments/stream`
+        - `GET`
+    - `/api/sentiments/:topic_id/stream`
+        - `GET`
 
 ## Backend
     
 ### Spring Server
 
-- construct a Reactive web service using **Spring Boot 2.0** with **WebFlux** and **Reactive MongoDB** to handle HTTP requests and **Server-sent events (SSE)**
-- use **In-memory Cache** to reduce pressure on DB
+- construct a Reactive web service using **Spring Boot 2.0** with **WebFlux** and **Reactive MongoDB** to handle HTTP requests
+    - use **Server-Sent events** way to handle stream requests
+- use **In-memory Cache** (**Caffine**) to reduce pressure on DB
 - used Spring techniques
-    - Spring Boot 2 : for Bootstrapping Project
-    - Spring Webflux : for Reactive Web Application
-    - Spring Reactive Data MongoDB : for Reactive Persistence in MongoDB.
-    - Lombok : for autogenerate Getter and Setter and other Method
-    - DevTools : make the application development experience a little more pleasant
+    - **Spring Boot 2** : for Bootstrapping Project
+    - **Spring Webflux** : for Reactive Web Application
+    - **Spring Cache**
+    - **Spring Reactive Data MongoDB** : for Reactive Persistence in MongoDB.
+    - **Lombok** : for autogenerate Getter and Setter and other Method
+    - **DevTools** : make the application development experience a little more pleasant
 - Service is composed of three layers
     - `@Repository` is the layer for data access
     - `@Service` defines the business logic, that is, how we can use the data access layer
@@ -88,6 +94,7 @@ F --> |topic sentimental scores| B2(End: MongoDB)
 > **Reactive programming** is a programming paradigm oriented around data flows and the propagation of change. This means that it should be possible to **express static or dynamic data flows with ease** in the programming languages used, and that the underlying execution model will **automatically propagate changes through the data flow**.
 
 - `Flux` and `Mono` are event publishers. If events are subscribled, the `Flux` and `Mono` will callback the corresponding methods defined by the publishers.
+    - `Flux` may not work with `@Cacheable` annotation. But it seems to be fine when I use both.
 
 ### Spring
 

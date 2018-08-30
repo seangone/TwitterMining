@@ -13,8 +13,9 @@ public class TopicController {
   private TopicService s;
 
   @GetMapping
-  public Flux<Topic> findAllTopics() {
-    return s.findAll();
+  public Flux<Topic> findAllTopics(
+      @RequestParam(name = "allowCache", defaultValue = "true") Boolean allowCache) {
+    return s.findAll(allowCache);
   }
 
   @PostMapping
@@ -24,18 +25,28 @@ public class TopicController {
   }
 
   @GetMapping(value = "/{id}")
-  public Mono<Topic> findTopicById(@PathVariable("id") String _id) {
-    return s.findById(_id);
+  public Mono<Topic> findTopicById(
+      @PathVariable("id") String _id,
+      @RequestParam(name = "allowCache", defaultValue = "true") Boolean allowCache) {
+    return s.findById(_id, allowCache);
   }
 
   @PutMapping(value = "/{id}")
-  public Mono<Topic> updateTopic(@RequestBody Topic t, @PathVariable("id") String _id) {
-    return s.updateTopic(t, _id);
+  public Mono<Topic> updateTopic(
+      @RequestBody Topic t,
+      @PathVariable("id") String _id) {
+    return s.update(t, _id);
   }
 
   @DeleteMapping(value = "/{id}")
-  public Mono<Boolean> deleteTopic(@PathVariable("id") String _id) {
-    return s.deleteById(_id);
+  public Mono<Boolean> deleteTopic(
+      @PathVariable("id") String _id) {
+    return s.deleteOne(_id);
+  }
+
+  @GetMapping(value = "/clearCache")
+  public Mono<Boolean> clearCache() {
+    return s.clearCaches();
   }
 
 }

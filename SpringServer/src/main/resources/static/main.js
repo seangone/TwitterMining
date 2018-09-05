@@ -1,230 +1,146 @@
-function askTrends(number = dataTrendsLimit){
+// data declaraction
+topic1 = {
+    'name': 'trump',
+    'keywords': ['#trump', 'aa'],
+    'userids': [123,123]
+}
+p1 = {
+    'label': 'Topic Name',
+    'text': '[\'#trump\']',
+    'inboxtext': '[\'#trump\']'
+}
+
+// define components
+var CompTopicEdit = {
+    props: ['topic'],
+    template: 
+      '<div class="row mb-3">'
+    + '<div class="input-group">'
+    + '  <div class="input-group-prepend">'
+    + '    <label class="input-group-text">Name</label>'
+    + '  </div>'
+    + '  <input type="text" class="form-control" placeholder="Name" v-model="topic.name">'
+    + '  <div class="input-group-append">'
+    + '    <button class="btn btn-outline-danger" type="button" v-on:click="$emit(\'remove\')">Remove</button>'
+    + '  </div>'
+    + '  <div class="input-group-append">'
+    + '    <button class="btn btn-outline-secondary" type="button" v-on:click="$emit(\'save\')">Save</button>'
+    + '  </div>'
+    + '</div>'
+    + '<div class="input-group">'
+    + '  <div class="input-group-prepend">'
+    + '    <label class="input-group-text">Keywords</label>'
+    + '  </div>'
+    + '  <input type="text" class="form-control" placeholder="Keywords" aria-label="Keywords" v-model="topic.keywords">'
+    + '</div>'
+    + '<div class="input-group">'
+    + '  <div class="input-group-prepend">'
+    + '    <label class="input-group-text">UserIds</label>'
+    + '  </div>'
+    + '  <input type="text" class="form-control" placeholder="UserIds" aria-label="UserIds" v-model="topic.ids">'
+    + '</div>'
+    + '</div>'
+}
+
+var CompTopics = {
+    props: ['topics'],
+    components: {'comp': CompTopicEdit},
+    template: 
+      '<div>'
+    + '<comp v-for="(t, index) in topics" '
+    + 'v-bind:key="t._id" v-bind:topic="t" '
+    + 'v-on:remove="remove(index)" v-on:save="save(index)">'
+    + '</comp>'
+    + '</div>',
+    methods: {
+        remove: function(index) {
+            var r = window.confirm('Are you sure to remove ' + this.topics[index]._id + '?');
+            if (r == true) {
+                removeTopic(this.topics[index]._id)
+                this.topics.splice(index, 1);
+            }
+        },
+        save: function(index) {
+            saveTopic(this.topics[index]._id, this.topics[index])
+        }
+    }
+}
+
+// instanialate new components
+var topicslist = new Vue({
+    el: "#topicmanager",
+    components: {'comp': CompTopics},
+    template: '<comp id="topicmanager" :topics="topics"></comp>',
+    data: {'topics': []}
+});
+
+// communication with back-end
+function getTopics(){
+    console.log("Ajex GET ./api/topics");
     $.ajax({
-        url: "./trends",
-        contenType: 'application/json;charset=utf-8',
+        url: "./api/topics",
+        contentType: 'application/json;charset=utf-8',
         crossDomain: true,
-        data: {num: number},
+        data: {},
         success: function(res){
-            console.log("Successfully Ajex:", res.time_updated, res.trends.length);
-            updateData(res);
-            timerShow = setTimer(timerShow);
+            console.log("Success - ", res);
+            for (var i = 0; i < res.length; i++) {
+                res[i].name = res[i]._id;
+                if (res[i].keywords != null) {
+                    res[i].keywords = res[i].keywords.join(",");
+                } else {
+                    res[i].keywords = "";
+                }
+                if (res[i].ids != null) {
+                    res[i].ids = res[i].ids.join(",");
+                } else {
+                    res[i].ids = "";
+                }
+            }
+            topicslist.topics = res;
         }
     });
     
 }
 
-
-var CompTrendItem = {
-    props: ['item'],
-    template: '<a class="list-group-item list-group-item-action ' 
-                    + 'justify-content-between align-items-center" '
-                    + 'v-bind:href="item.url" target="_blank">{{item.name}}'
-                    + '<span v-if="item.tweet_volume != null" class="badge badge-primary badge-pill float-right">' 
-                    + '{{item.tweet_volume}}</span>'
-                    +'</a>'
-};
-
-var CompTime = {
-    props: ['timestamp'],
-    template: '<p class="card-text float-left">'
-                +'<small class="text-muted">Updated Time: {{getTimeDiff(timestamp)}}'
-                +'</small></p>' ,
-    methods: {
-        getTimeDiff: function(t) {
-            var diffs = (Date.now() - Date.parse(dataTrends.timestamp))/1000; // seconds
-            if (diffs < 0) {
-                return "";
-            }
-            if (diffs < 60) {
-                return "Just now";
-            }
-            var diffm = diffs / 60;
-            if (diffm == 1){
-                return "A minute ago";
-            } else if (diffm < 60) {
-                return Math.floor(diffm) + " minutes ago";
-            }
-            var diffh = diffm / 60;
-            if (diffh == 1){
-                return "A hour ago";
-            } else if (diffh < 24) {
-                return Math.floor(diffh) + " hours ago";
-            }
-            var diffd = diffh / 24;
-            if (diffd == 1){
-                return "A day ago";
-            }
-            return Math.floor(diffd) + " days ago";
+function removeTopic(_id){
+    console.log("Ajax DELETE ./api/topics/" + _id)
+    $.ajax({
+        url: "./api/topics/" + _id,
+        contentType: 'application/json;charset=utf-8',
+        type: "DELETE",
+        crossDomain: true,
+        data: {},
+        success: function(res){
+            console.log("Success -", res);
         }
-    }
-};
+    });
+}
 
-var CompTrendsGroup = {
-    props: ['trends', 'showControl'],
-    components: {
-        'comp-item': CompTrendItem, 
-        'comp-time': CompTime
-    }, 
-    template: '<div><div class="list-group" >' 
-                + '<comp-item v-for="(it, ix) in trends.items" '
-                    + 'v-bind:id=generateID(ix) v-bind:style="{display: isDisplay(ix)}" '
-                    + ':item="it" :key="it.crawled_order">'
-                + '</comp-item>'
-            + '</div>'
-            + '<comp-time :timestamp="trends.timestamp"></comp-time></div>',
-    methods: {
-        generateID: function(index){
-            return "a-line" + index;
-        },
-        isDisplay: function(index){
-            var start = (showControl.activeIx - 1) * showControl.ItemsPerPage;
-            if (start <= index && index < start + showControl.ItemsPerPage){
-                return 'block';
-            } else {
-                return 'none'
+function saveTopic(_id, data){
+    putdata = {
+        '_id': data.name, 
+        'keywords': data.keywords.split(","), 
+        'ids': data.ids.split(",")
+    }
+    console.log("Ajax PUT ./api/topics/" + _id, putdata)
+    $.ajax({
+        url: "./api/topics/" + _id,
+        contentType: 'application/json',
+        type: "PUT",
+        crossDomain: true,
+        data: JSON.stringify(putdata),
+        dataType: "json",
+        success: function(res){
+            console.log("Success -", res);
+            for (var i = 0; i < data.length; i++) {
+                data[i]._id = data[i].name;
             }
         }
-    }
+    });
 }
 
-var CompPageNav = {
-    props: ['numPages', 'activeIx'],
-    template: '<div class="float-right"><ul id="trends-nav" class="pagination">'
-                +'<li class="page-item" :class="{disabled: isDisabledPrev()}">'
-                +'<a class="page-link"" v-bind:href="generateUrl(0)">&laquo;</a>'
-                +'</li>'
-                +'<li v-for="ix in numPages" class="page-item" v-bind:class="{active: isActive(ix)}">'
-                +'<a class="page-link"" v-bind:href="generateUrl(ix)">{{ix}}</a>'
-                +'</li>'
-                +'<li class="page-item" :class="{disabled: isDisabledNext()}">'
-                +'<a class="page-link"" v-bind:href="generateUrl(-1)">&raquo;</a>'
-                +'</li>'
-                +'</ul></div>',
-    methods: {
-//      generateID: function(index){
-//          return "a-line" + index;
-//      },
-        generateUrl: function(index){
-            if (index == 0){
-                return "javascript:setPage(0)";
-            }
-            if (index == -1){
-                return "javascript:setPage(-1)";
-            }
-            return "javascript:setPage("+index+")";
-        },
-        isActive: function(index){
-            return index == this.activeIx;
-        },
-        isDisabledPrev: function(){
-            return this.activeIx <= 1;
-        },
-        isDisabledNext: function(){
-            return this.activeIx >= this.numPages;
-        }
-    }
-};
+getTopics();
 
 
-
-
-var dataTrendsLimit = 50;
-
-var dataTrends = { timestamp : "", items: []}
-var showControl = {
-        'numPages': 5, 
-        'activeIx': 1,
-        'ItemsPerPage': 10
-};
-showControl.numPages = Math.ceil(dataTrends.items.length / showControl.ItemsPerPage);
-var timerControl = {
-        'interval': 2500
-};
-var timerShow;
-
-// draw components and bind data
-var ts = new Vue({
-    el: "#itemsgroup",
-    components: {'comp': CompTrendsGroup},
-    template: '<comp id="itemsgroup" :trends="trends" :showControl="showControl"></comp>',
-    data: {'trends': dataTrends, 'showControl': showControl}
-});
-var sc = new Vue({
-    el: "#showcontrol",
-    components: {'pc': CompPageNav},
-    template: '<pc id="showcontrol" :numPages="numPages" :activeIx="activeIx"></pc>',
-    data: showControl
-});
-
-function updateData(res){
-    dataTrends.timestamp = res.time_updated;
-    dataTrends.items = res.trends;
-    showControl.numPages = Math.ceil(dataTrends.items.length / showControl.ItemsPerPage);
-}
-
-function refresh(){
-    setPage(-1);
-}
-
-function setTimer(timer){
-    if (timer == null){
-        return setInterval(refresh, timerControl.interval);
-    } else {
-//      console.log("restart Timer");
-        timer = stopTimer(timer);
-        timer = setInterval(refresh, timerControl.interval)
-        return timer;
-    }
-}
-
-function stopTimer(timer){
-    if (timer != null){
-        return clearInterval(timer);
-    } else {
-        return timer;
-    }
-}
-
-function resetTimer(timer){
-    return stopTimer(timer).setTimer(timer);
-}
-
-
-
-function setPage(ix){
-    if (ix == 0){
-        showControl.activeIx--;
-    } else if (ix == -1){
-        showControl.activeIx++;
-    } else {
-        showControl.activeIx = ix;
-    }
-    if(showControl.activeIx < 1){
-        showControl.activeIx = showControl.numPages;
-    } else if (showControl.activeIx > showControl.numPages){
-        showControl.activeIx = 1;
-    }
-//  timerShow = resetTimer(timerShow);
-}
-
-
-askTrends();
-timerShow = setTimer(timerShow);
-
-$("#trends").mouseleave(function() {
-//  console.log("Detect Mouse Leave");
-    timerShow = setTimer(timerShow);
-});
-$("#trends").mouseenter(function() {
-//  console.log("Detect Mouse Enter");
-    timerShow = stopTimer(timerShow);
-});
-$("#trends").mousemove(function() {
-//  console.log("Detect Mouse Enter");
-    timerShow = stopTimer(timerShow);
-});
-$("#trends").click(function() {
-//  console.log("Detect Mouse Enter");
-    timerShow = stopTimer(timerShow);
-});
 

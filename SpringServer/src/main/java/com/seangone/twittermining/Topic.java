@@ -15,11 +15,4 @@ public class Topic {
   private List<String> keywords;
   private List<String> ids;
 
-
-  public Topic(String _id, List<String> keywords, List<String> ids) {
-    this._id = _id;
-    this.keywords = keywords;
-    this.ids = ids;
-  }
-
 }

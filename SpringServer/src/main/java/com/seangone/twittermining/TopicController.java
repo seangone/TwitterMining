@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping(value = "/api/topics")
 public class TopicController {
@@ -20,7 +22,7 @@ public class TopicController {
 
   @PostMapping
   @ResponseStatus(HttpStatus.CREATED)
-  public Mono<Topic> saveOneTopic(@RequestBody Topic t) {
+  public Mono<Topic> saveOneTopic(@Valid @RequestBody Topic t) {
     return s.saveOne(t);
   }
 
@@ -33,7 +35,7 @@ public class TopicController {
 
   @PutMapping(value = "/{id}")
   public Mono<Topic> updateTopic(
-      @RequestBody Topic t,
+      @Valid @RequestBody Topic t,
       @PathVariable("id") String _id) {
     return s.update(t, _id);
   }

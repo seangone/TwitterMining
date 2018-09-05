@@ -11,8 +11,6 @@ import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-import java.util.ArrayList;
-
 
 @Service
 @CacheConfig(cacheNames = "topic")
@@ -23,13 +21,6 @@ public class TopicService {
   @Autowired
   public TopicService(TopicRepository r) {
     this.r = r;
-  }
-
-  public Mono<Topic> getSampleTopic(String _id){
-    Topic t = new Topic(_id, new ArrayList<String>() {{
-      add("hadidididioba");
-    }}, new ArrayList<String>());
-    return Mono.create(sink -> sink.success(t));
   }
 
   @Cacheable(value = "topic", key = "#_id", condition = "#allowCache")
@@ -43,6 +34,7 @@ public class TopicService {
 
   @CacheEvict(value = "topic", key = "#_id")
   public Mono<Boolean> deleteOne(String _id) {
+    logger.info("Use Repository in topic when deleteOne({})", _id);
     return r.findById(_id).flatMap(t -> r.delete(t).then(Mono.just(true)))
         .switchIfEmpty(
             Mono.error(new Exception("No Topic found with Id: " + _id))
@@ -51,14 +43,20 @@ public class TopicService {
 
   @CachePut(value = "topic", key = "#_id")
   public Mono<Topic> update(Topic newt, String _id) {
-    return findById(_id, false).flatMap(t -> r.save(newt))
-        .switchIfEmpty(
-            Mono.error(new Exception("No Topic found with Id: " + _id))
-        );
+    logger.info("Use Repository in topic when saveOne({})", newt);
+    return findById(_id, false).flatMap(t -> {
+      t.set_id(newt.get_id());
+      t.setKeywords(newt.getKeywords());
+      t.setIds(newt.getIds());
+      return r.save(t);
+    }).switchIfEmpty(
+        Mono.error(new Exception("No Topic found with Id: " + _id))
+    );
   }
 
   @CachePut(value = "topic", key = "#t._id")
   public Mono<Topic> saveOne(Topic t) {
+    logger.info("Use Repository in topic when saveOne({})", t);
     return r.save(t);
   }
 

@@ -1,24 +1,25 @@
 # TwitterMining
 
 - Showcase
-    - [http://18.144.22.172/](http://18.144.22.172/)
+    - [http://18.144.22.172](http://18.144.22.172)
 
 I got problems with spark deployment on EC2 (not enough budget for Hadoop) so I am now working on the part of calculating using pure Python.
 
 ## Frontend
 
-- using **Vue.js** to bind model with view
+- use **React** to build a dashboard and a topic editor
 - use **AJAX** to communicate with back-end
-
+- use **NodeJS** to serve static files
 
 ## Restful API
 
-- use **Restful API** to manage topics to be tracked
+- URL
+    - [http://18.144.22.172:8080/api](http://18.144.22.172:8080/api)- use **Restful API** to manage topics to be tracked
     - `/api/topics/`
         - `GET`
+        - `POST` - create
     - `/api/topics/:topic_id`
         - `GET`
-        - `POST` - create
         - `PUT` - substitude
         - `DELETE`
     - `/api/sentiments/`
@@ -56,6 +57,7 @@ I got problems with spark deployment on EC2 (not enough budget for Hadoop) so I 
     - [MongoDB](https://github.com/docker-library/mongo)
     - [Mongo-express](https://github.com/mongo-express/mongo-express-docker)
     - [Docker Registry](https://docs.docker.com/registry/)
+    - [Dockerizing a Node.js web app](https://nodejs.org/en/docs/guides/nodejs-docker-webapp/)
 
 ## Data Collecting and Mining
 

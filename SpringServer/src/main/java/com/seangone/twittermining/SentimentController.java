@@ -11,6 +11,7 @@ import java.time.Duration;
 import java.util.concurrent.ThreadLocalRandom;
 
 @RestController
+@CrossOrigin
 @RequestMapping(value = "/api/sentiments")
 public class SentimentController {
   @Autowired

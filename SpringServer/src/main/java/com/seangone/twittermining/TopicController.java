@@ -9,6 +9,7 @@ import reactor.core.publisher.Mono;
 import javax.validation.Valid;
 
 @RestController
+@CrossOrigin
 @RequestMapping(value = "/api/topics")
 public class TopicController {
   @Autowired

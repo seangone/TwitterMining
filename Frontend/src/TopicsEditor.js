@@ -71,6 +71,16 @@ class TopicsEditor extends React.Component {
     submitOneToServer(method, index) {
         var data = this.state.data[index];
         if (data === undefined || data.name === undefined || data.name === "") {
+            console.log("Empty " + index);
+            if (method === "submit") {
+                return false;
+            } else if (method === "delete") {
+                this.state.data.splice(index, 1);
+                this.state.dataStatus.splice(index, 1);
+                this.setState(this.state.data);
+                this.setState(this.state.dataStatus);
+                return false;
+            }
             return false;
         }
         const url = apiurl + "/topics/";
@@ -133,9 +143,17 @@ class TopicsEditor extends React.Component {
     // handle submitting events
     handleSubmit(index) {
         if (index === -1) {
-            for(let ix = 0; ix < this.state.data.length; ix++) {
+            var newDataStatus = this.state.dataStatus.slice();
+            this.state.data.map((data, ix) => {
+                if (data === undefined || data.name === undefined || data.name === "") {
+                    newDataStatus[ix] = "error";
+                }
+                return ;
+            });
+            this.setState({dataStatus: newDataStatus});
+            this.state.data.map((line, ix) => {
                 this.submitOneToServer("submit", ix);
-            }
+            })
         } else {
             this.submitOneToServer("submit", index);
         }

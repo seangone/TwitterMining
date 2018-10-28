@@ -1,0 +1,1 @@
+docker run -it --name tmfrontend -p 3000:3000 seangone/tmfrontend

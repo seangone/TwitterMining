@@ -22,10 +22,10 @@
     <session id="-765475467">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="3" />
+          <entry key="project.closed" value="4" />
           <entry key="project.open.time.6" value="2" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.opened" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -67,7 +67,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="16">
+            <state relative-caret-position="21">
               <caret line="40" column="45" selection-start-line="40" selection-start-column="36" selection-end-line="40" selection-end-column="45" />
               <folding>
                 <marker date="1535341926415" expanded="true" signature="773:949" ph="..." />
@@ -206,7 +206,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -237,6 +236,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -450,6 +450,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="16" y="23" width="970" height="728" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18335089" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.17075233" />
@@ -608,6 +609,24 @@
     <entry file="file://$PROJECT_DIR$/app_log/logger.log">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="40" column="45" selection-start-line="40" selection-start-column="36" selection-end-line="40" selection-end-column="45" />
+          <folding>
+            <marker date="1535341926415" expanded="true" signature="773:949" ph="..." />
+            <marker date="1535341926415" expanded="true" signature="1387:1511" ph="..." />
+            <marker date="1535341926415" expanded="true" signature="1923:2584" ph="..." />
+            <marker date="1535341926415" expanded="true" signature="2259:2336" ph="..." />
+            <marker date="1535341926415" expanded="true" signature="2330:2336" ph="..." />
+            <marker date="1535341926415" expanded="true" signature="2982:2984" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docker-build.sh">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/util/logger.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
@@ -643,24 +662,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="903">
           <caret line="43" column="42" selection-start-line="43" selection-start-column="42" selection-end-line="43" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docker-build.sh">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="16">
-          <caret line="40" column="45" selection-start-line="40" selection-start-column="36" selection-end-line="40" selection-end-column="45" />
-          <folding>
-            <marker date="1535341926415" expanded="true" signature="773:949" ph="..." />
-            <marker date="1535341926415" expanded="true" signature="1387:1511" ph="..." />
-            <marker date="1535341926415" expanded="true" signature="1923:2584" ph="..." />
-            <marker date="1535341926415" expanded="true" signature="2259:2336" ph="..." />
-            <marker date="1535341926415" expanded="true" signature="2330:2336" ph="..." />
-            <marker date="1535341926415" expanded="true" signature="2982:2984" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>

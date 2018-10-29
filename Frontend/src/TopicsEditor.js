@@ -1,8 +1,8 @@
 import React from 'react';
 
+const apiurl = "http://18.144.22.172:8080/api";
+// const apiurl = "http://127.0.0.1:8080/api";
 
-// const apiurl = "http://18.144.22.172:8080/api";
-const apiurl = "http://localhost:8080/api";
 const emptytopic = {
     'name': '',
     'keywords': '',
@@ -29,9 +29,11 @@ class TopicsEditor extends React.Component {
             dataStatus: Array(data.length).fill("")
         };
     }
-    componentDidMount(){
+
+    componentDidMount() {
         this.fetchTopics();
     }
+
     // communication with back-end
     fetchTopics() {
         const url = apiurl + "/topics";
@@ -58,7 +60,7 @@ class TopicsEditor extends React.Component {
                 // instead of a catch() block so that we don't swallow
                 // exceptions from actual bugs in components.
                 (error) => {
-                    console.log("err"+error.message);
+                    console.log("err" + error.message);
                     this.setState({
                         isLoaded: true,
                         error,
@@ -68,6 +70,7 @@ class TopicsEditor extends React.Component {
                 }
             )
     };
+
     submitOneToServer(method, index) {
         var data = this.state.data[index];
         if (data === undefined || data.name === undefined || data.name === "") {
@@ -86,8 +89,8 @@ class TopicsEditor extends React.Component {
         const url = apiurl + "/topics/";
         const body = JSON.stringify({
             "_id": data.name,
-            "keywords": data.keywords.split(",").filter((item)=>item!==""),
-            "ids": data.userids.split(",").filter((item)=>item!=="")
+            "keywords": data.keywords.split(",").filter((item) => item !== ""),
+            "ids": data.userids.split(",").filter((item) => item !== "")
         });
         console.log(method + " URL: " + url);
         console.log(body);
@@ -96,62 +99,62 @@ class TopicsEditor extends React.Component {
                 method: 'POST',
                 mode: 'cors',
                 body: body,
-                headers:{
+                headers: {
                     'Content-Type': 'application/json'
                 }
             })
-            .then(res => res.json())
-            .catch(error => {
-                console.log('--Error:', error);
-                var newDataStatus = this.state.dataStatus.slice();
-                newDataStatus[index] = "error";
-                this.setState({dataStatus: newDataStatus});
-            })
-            .then(response => {
-                console.log('--Success:', response);
-                var newDataStatus = this.state.dataStatus.slice();
-                newDataStatus[index] = "submitted";
-                this.setState({dataStatus: newDataStatus});
-            });
+                .then(res => res.json())
+                .catch(error => {
+                    console.log('--Error:', error);
+                    var newDataStatus = this.state.dataStatus.slice();
+                    newDataStatus[index] = "error";
+                    this.setState({dataStatus: newDataStatus});
+                })
+                .then(response => {
+                    console.log('--Success:', response);
+                    var newDataStatus = this.state.dataStatus.slice();
+                    newDataStatus[index] = "submitted";
+                    this.setState({dataStatus: newDataStatus});
+                });
         } else if (method === "delete") {
             fetch(url + data.name, {
                 method: 'DELETE',
                 mode: 'cors',
                 body: body,
-                headers:{
+                headers: {
                     'Content-Type': 'application/json'
                 }
             })
-            .then(res => res.json())
-            .catch(error => {
-                console.log('Error:', error);
-                var newDataStatus = this.state.dataStatus.slice();
-                newDataStatus[index] = "error";
-                this.setState({dataStatus: newDataStatus});
-            })
-            .then(response => {
-                console.log('--Deleted:', response);
-                this.state.data.splice(index, 1);
-                this.state.dataStatus.splice(index, 1);
-                this.setState(this.state.data);
-                this.setState(this.state.dataStatus);
-            })
+                .then(res => res.json())
+                .catch(error => {
+                    console.log('Error:', error);
+                    var newDataStatus = this.state.dataStatus.slice();
+                    newDataStatus[index] = "error";
+                    this.setState({dataStatus: newDataStatus});
+                })
+                .then(response => {
+                    console.log('--Deleted:', response);
+                    this.state.data.splice(index, 1);
+                    this.state.dataStatus.splice(index, 1);
+                    this.setState(this.state.data);
+                    this.setState(this.state.dataStatus);
+                })
         }
 
-        return ;
+        return;
     };
+
     // handle submitting events
     handleSubmit(index) {
         if (index === -1) {
             var newDataStatus = this.state.dataStatus.slice();
-            this.state.data.map((data, ix) => {
+            this.state.data.forEach((data, ix) => {
                 if (data === undefined || data.name === undefined || data.name === "") {
                     newDataStatus[ix] = "error";
                 }
-                return ;
             });
             this.setState({dataStatus: newDataStatus});
-            this.state.data.map((line, ix) => {
+            this.state.data.forEach((line, ix) => {
                 this.submitOneToServer("submit", ix);
             })
         } else {
@@ -159,14 +162,17 @@ class TopicsEditor extends React.Component {
         }
         return true;
     };
+
     // handle all filtering events
     handleUserInput(filterText) {
         this.setState({filterText: filterText});
     };
+
     // handle all editing events
     handleRowDel(index) {
         this.submitOneToServer("delete", index);
     };
+
     handleAddEvent(evt) {
         // var id = (+ new Date() + Math.floor(Math.random() * 999999)).toString(36);
         var topic = Object.assign({}, emptytopic);
@@ -177,6 +183,7 @@ class TopicsEditor extends React.Component {
         this.setState(this.state.dataStatus);
 
     };
+
     handleTableUpdate(evt) {
         var item = {
             id: evt.target.id, // index
@@ -195,13 +202,14 @@ class TopicsEditor extends React.Component {
         data[item.id][item.name] = item.value;
         var dataStatus = this.state.dataStatus.slice();
         dataStatus[item.id] = "changed";
-        this.setState({data:data});
-        this.setState({dataStatus:dataStatus});
+        this.setState({data: data});
+        this.setState({dataStatus: dataStatus});
         //  console.log(this.state.data);
     };
+
     //rendering
     render() {
-        const { error, isLoaded} = this.state;
+        const {error, isLoaded} = this.state;
         if (error) {
             return <div>Error: {error.message}</div>;
         } else if (!isLoaded) {
@@ -211,7 +219,7 @@ class TopicsEditor extends React.Component {
         }
 
         return (
-            <div>
+            <div className="TopicsEditor">
                 <SearchBar filterText={this.state.filterText}
                            onUserInput={this.handleUserInput.bind(this)}/>
                 <ProductTable onTableUpdate={this.handleTableUpdate.bind(this)}
@@ -233,6 +241,7 @@ class SearchBar extends React.Component {
     handleChange() {
         this.props.onUserInput(this.refs.filterTextInput.value);
     }
+
     render() {
         return (
             <div>
@@ -258,21 +267,21 @@ class ProductTable extends React.Component {
         var filterText = this.props.filterText;
         var rows = this.props.data
             .filter(topic => topic.name.indexOf(filterText) !== -1)
-            .map( (topic, index)=> {
+            .map((topic, index) => {
                 return (
                     <ProductRow key={index}
                                 index={index}
                                 topic={topic}
                                 dataStatus={this.props.dataStatus[index]}
                                 onTableUpdate={onTableUpdate}
-                                onSubmit={(e)=>onSubmit(index)}
-                                onRowDel={(e)=>onRowDel(index)}
+                                onSubmit={(e) => onSubmit(index)}
+                                onRowDel={(e) => onRowDel(index)}
                     />)
-        });
+            });
         return (
             <div>
                 <button type="button"
-                        onClick={(e)=>this.props.onSubmit(-1)}
+                        onClick={(e) => this.props.onSubmit(-1)}
                         className="btn btn-outline-primary float-right">
                     Submit All
                 </button>
@@ -309,7 +318,7 @@ class ProductTable extends React.Component {
 class ProductRow extends React.Component {
     render() {
         let trstyle = "";
-        if (this.props.dataStatus ===undefined){
+        if (this.props.dataStatus === undefined) {
 
         } else if (this.props.dataStatus === "changed") {
             trstyle = "table-warning"
@@ -332,14 +341,14 @@ class ProductRow extends React.Component {
                                   id: this.props.topic.name,
                                   type: "keywords",
                                   value: this.props.topic.keywords
-                }}/>
+                              }}/>
                 <EditableCell onTableUpdate={this.props.onTableUpdate}
                               cellData={{
                                   index: this.props.index,
                                   id: this.props.topic.name,
                                   type: "userids",
                                   value: this.props.topic.userids,
-                }}/>
+                              }}/>
                 <td className="submit-cell">
                     <input type="button"
                            onClick={this.props.onSubmit}
@@ -362,7 +371,7 @@ class ProductRow extends React.Component {
 class EditableCell extends React.Component {
     render() {
         return (
-            <td>
+            <td className="p-2">
                 <input type='text'
                        id={this.props.cellData.index} // topic.name, like Trump, James
                        name={this.props.cellData.type}  // Name, Keywords, UserIds

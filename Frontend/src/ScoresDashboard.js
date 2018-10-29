@@ -2,8 +2,8 @@ import React from 'react';
 import {TwitterTweetEmbed} from 'react-twitter-embed';
 
 
-const apiurl = "http://127.0.0.1:8080/api";
-// const apiurl = "http://18.144.22.172:8080/api";
+// const apiurl = "http://127.0.0.1:8080/api";
+const apiurl = "http://18.144.22.172:8080/api";
 const data = [
     {
         "title":"trump",

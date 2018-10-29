@@ -1,7 +1,9 @@
 import React from 'react';
 import {TwitterTweetEmbed} from 'react-twitter-embed';
 
-const apiurl = "http://18.144.22.172:8080/api";
+
+const apiurl = "http://127.0.0.1:8080/api";
+// const apiurl = "http://18.144.22.172:8080/api";
 const data = [
     {
         "title":"trump",
@@ -21,10 +23,14 @@ class ScoresDashboard extends React.Component{
             isLoaded: false,
             data: data
         };
+        const url = apiurl + "/sentiments/stream";
+        this.evtSource = new EventSource(url);
+        console.log("Fetch URL: " + url);
     }
 
     componentDidMount() {
         this.fetchScores();
+        this.fetchScoresStream();
     }
     // communication with backend
     fetchScores() {
@@ -37,11 +43,13 @@ class ScoresDashboard extends React.Component{
                     console.log("fetchTopics Success: size " + raw.length);
                     let fined = raw.map((line) => {
                         return {
+                            key: line._Id,
                             title: line.topic,
                             tweetId: line.last_status_id,
                             score:  Math.round(line.score)
                         };
                     }).filter(line => line.title !== "");
+
                     this.setState({
                         isLoaded: true,
                         data: fined
@@ -60,6 +68,30 @@ class ScoresDashboard extends React.Component{
                 }
             )
     };
+    fetchScoresStream() {
+        this.evtSource.onmessage = (e) => {
+            let line = JSON.parse(e.data);
+            // console.log(line);
+            let fined = {
+                    key: line._Id,
+                    title: line.topic,
+                    tweetId: line.last_status_id,
+                    score:  Math.round(line.score)
+            };
+            if (fined.title === "") return;
+            let newData = this.state.data.map((item) => {
+                if (item.title === fined.title) {
+                    item.tweetId = fined.tweetId;
+                    item.score = fined.score;
+                }
+                return item;
+            });
+            this.setState({
+                data: newData
+            });
+
+        };
+    };
 
     //render
     render(){
@@ -74,7 +106,7 @@ class ScoresDashboard extends React.Component{
 
         let cards = this.state.data.map((card, index) => {
             return (
-                <Card cardtitle={card.title} score={card.score} tweetId={card.tweetId}/>
+                <Card key={card.key} cardtitle={card.title} score={card.score} tweetId={card.tweetId}/>
             );
         });
         return (

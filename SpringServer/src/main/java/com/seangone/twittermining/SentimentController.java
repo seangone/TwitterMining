@@ -1,7 +1,9 @@
 package com.seangone.twittermining;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.codec.ServerSentEvent;
+import org.springframework.http.server.ServerHttpResponse;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -41,19 +43,25 @@ public class SentimentController {
     return s.getLatestSentimentByTopic(topic_id, allowCache);
   }
 
-  @GetMapping(value = "/stream")
-  public Flux<ServerSentEvent<Sentiment>> getStreamSentiments() {
-    return s.getStreamSentiments((long)1000)
-        .map( data -> ServerSentEvent.<Sentiment>builder()
-            .event("sentiments_all")
-            .data(data)
-            .build() );
+//  @GetMapping(value = "/stream", produces=MediaType.TEXT_EVENT_STREAM_VALUE)
+//  public Flux<ServerSentEvent<Sentiment>> getStreamSentiments() {
+//    return s.getStreamSentiments((long)1000)
+//        .map( data -> ServerSentEvent.<Sentiment>builder()
+//            .event("sentiments_all")
+//            .data(data)
+//            .build() );
+//  }
+  @GetMapping(value = "/stream", produces=MediaType.TEXT_EVENT_STREAM_VALUE)
+  public Flux<Sentiment> getStreamSentiments() {
+    return s.getStreamSentiments((long)1000);
   }
 
   @GetMapping(value = "/{topic_id}/stream")
   public Flux<ServerSentEvent<Sentiment>> getStreamSentimentByTopic(
-      @PathVariable("topic_id") String topic_id) {
-    return s.getStreamSentimentByTopic(topic_id, (long)1000)
+      @PathVariable("topic_id") String topic_id
+  ) {
+    return s
+        .getStreamSentimentByTopic(topic_id, (long)1000)
         .map( data -> ServerSentEvent.<Sentiment>builder()
             .event("sentiments_" + topic_id)
             .data(data)

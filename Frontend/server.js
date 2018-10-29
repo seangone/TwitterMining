@@ -1,16 +1,62 @@
-'use strict';
+const http = require('http');
 
-const express = require('express');
+http.createServer((request, response) => {
+    console.log('Requested url: ' + request.url);
 
-// Constants
-const PORT = 8080;
-const HOST = '0.0.0.0';
+    if (request.url.toLowerCase() === '/events') {
+        response.writeHead(200, {
+            'Connection': 'keep-alive',
+            'Content-Type': 'text/event-stream;charset=UTF-8',
+            'Cache-Control': 'no-cache',
+            'Access-Control-Allow-Origin': "*"
+        });
 
-// App
-const app = express();
-app.get('/', (req, res) => {
-    res.send('Hello world\n');
+        setTimeout(() => {
+            response.write(
+                'data: {"flight": "I768", "state": "landing"}'
+            );
+            response.write('\n\n');
+        }, 1000);
+
+        setTimeout(() => {
+            response.write(
+                'data: {"flight": "I768", "state": "landed"}'
+            );
+            response.write('\n\n');
+        }, 2000);
+
+        setTimeout(() => {
+            response.write(
+                'data: {"flight": "I768", "state": "landing"}'
+            );
+            response.write('\n\n');
+        }, 3000);
+
+        setTimeout(() => {
+            response.write(
+                'data: {"flight": "I768", "state": "landed"}'
+            );
+            response.write('\n\n');
+        }, 4000)
+
+        setTimeout(() => {
+            response.write(
+                'data: {"flight": "I768", "state": "landing"}'
+            );
+            response.write('\n\n');
+        }, 5000);
+
+        setTimeout(() => {
+            response.write(
+                'data: {"flight": "I768", "state": "landed"}'
+            );
+            response.write('\n\n');
+        }, 6000)
+
+    } else {
+        response.writeHead(404);
+        response.end();
+    }
+}).listen(5000, () => {
+    console.log('Server running at http://127.0.0.1:5000/');
 });
-
-app.listen(PORT, HOST);
-console.log(`Running on http://${HOST}:${PORT}`);

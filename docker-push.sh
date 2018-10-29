@@ -1,4 +1,4 @@
-# Build images first
+# Build images in local first
 
 # then push it to my private registry
 docker tag seangone/twittercrawler 18.144.22.172:5000/seangone/twittercrawler

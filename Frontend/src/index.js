@@ -36,7 +36,7 @@ const AppRouter = () => (
                     <Switch>
                         <Route path="/topics/" component={Topics}/>
                         <Route path="/sentiments/" component={Sentiments}/>
-                        <Redirect exact from="/" to="/topics/"/>
+                        <Redirect exact from="/" to="/sentiments/"/>
                     </Switch>
                 </div>
             </section>

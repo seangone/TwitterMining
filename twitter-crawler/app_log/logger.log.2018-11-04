@@ -1,0 +1,6 @@
+2018-11-04 18:45:58,454 - INFO - Tweepy Config - {'consumer_key': 'EDEHVD09dN7cdIJMPr4D47eYp', 'consumer_secret': 'jTQFOvigDTHu4Lusb7rJ3kCX0RkimTEX1iZaFl0MloKMuhB1Tb', 'access_token': '3932937014-ULiqX7aTSxpHEQOHEncUL2w6YT3tEzvbyYpseea', 'access_token_secret': 'CdGTXhyJX9qkBO3MeqRAZne6Cv4MPPKWDMlUuMz3DTNcV'}
+2018-11-04 18:45:58,456 - INFO - MongoDB Config Url - mongodb://18.144.22.172:20087/
+2018-11-04 18:45:58,776 - INFO - deleted old scores: {'n': 0, 'ok': 1.0}
+2018-11-04 18:45:58,825 - INFO - Topics initialized from DB: ['', 'curry', 'tesla', 'trump', 'politic', 'Rap'], keywords: ['#stephencurry', '#tesla', '#elonmusk', '#trump', '#election2018', '#nicki', '#minaj', '#eminem', '#rap']
+2018-11-04 18:47:58,947 - INFO - deleted old scores: {'n': 0, 'ok': 1.0}
+2018-11-04 18:47:58,995 - INFO - Topics check, nothing changes, keywords: ['#stephencurry', '#tesla', '#elonmusk', '#trump', '#election2018', '#nicki', '#minaj', '#eminem', '#rap']

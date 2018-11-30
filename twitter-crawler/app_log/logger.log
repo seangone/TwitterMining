@@ -1,0 +1,52 @@
+2018-11-29 19:41:49,725 - INFO - Tweepy Config - {'consumer_key': 'EDEHVD09dN7cdIJMPr4D47eYp', 'consumer_secret': 'jTQFOvigDTHu4Lusb7rJ3kCX0RkimTEX1iZaFl0MloKMuhB1Tb', 'access_token': '3932937014-ULiqX7aTSxpHEQOHEncUL2w6YT3tEzvbyYpseea', 'access_token_secret': 'CdGTXhyJX9qkBO3MeqRAZne6Cv4MPPKWDMlUuMz3DTNcV'}
+2018-11-29 19:41:49,740 - INFO - MongoDB Config Url - mongodb://18.144.22.172:20087/
+2018-11-29 19:41:50,003 - INFO - deleted old scores: {'n': 0, 'ok': 1.0}
+2018-11-29 19:41:50,127 - INFO - Topics initialized from DB: ['', 'curry', 'tesla', 'trump', 'politic', 'Rap'], keywords: ['#stephencurry', '#tesla', '#elonmusk', '#trump', '#election2018', '#nicki', '#minaj', '#eminem', '#rap']
+2018-11-29 19:43:31,640 - INFO - Tweepy Config - {'consumer_key': 'EDEHVD09dN7cdIJMPr4D47eYp', 'consumer_secret': 'jTQFOvigDTHu4Lusb7rJ3kCX0RkimTEX1iZaFl0MloKMuhB1Tb', 'access_token': '3932937014-ULiqX7aTSxpHEQOHEncUL2w6YT3tEzvbyYpseea', 'access_token_secret': 'CdGTXhyJX9qkBO3MeqRAZne6Cv4MPPKWDMlUuMz3DTNcV'}
+2018-11-29 19:43:31,642 - INFO - MongoDB Config Url - mongodb://18.144.22.172:20087/
+2018-11-29 19:43:31,723 - INFO - deleted old scores: {'n': 0, 'ok': 1.0}
+2018-11-29 19:43:31,783 - INFO - Topics initialized from DB: ['', 'curry', 'tesla', 'trump', 'politic', 'Rap'], keywords: ['#stephencurry', '#tesla', '#elonmusk', '#trump', '#election2018', '#nicki', '#minaj', '#eminem', '#rap']
+2018-11-29 19:43:36,881 - INFO - Tweepy Config - {'consumer_key': 'EDEHVD09dN7cdIJMPr4D47eYp', 'consumer_secret': 'jTQFOvigDTHu4Lusb7rJ3kCX0RkimTEX1iZaFl0MloKMuhB1Tb', 'access_token': '3932937014-ULiqX7aTSxpHEQOHEncUL2w6YT3tEzvbyYpseea', 'access_token_secret': 'CdGTXhyJX9qkBO3MeqRAZne6Cv4MPPKWDMlUuMz3DTNcV'}
+2018-11-29 19:43:36,882 - INFO - MongoDB Config Url - mongodb://18.144.22.172:20087/
+2018-11-29 19:43:36,973 - INFO - deleted old scores: {'n': 0, 'ok': 1.0}
+2018-11-29 19:43:36,999 - INFO - Topics initialized from DB: ['', 'curry', 'tesla', 'trump', 'politic', 'Rap'], keywords: ['#stephencurry', '#tesla', '#elonmusk', '#trump', '#election2018', '#nicki', '#minaj', '#eminem', '#rap']
+2018-11-29 19:45:37,052 - INFO - deleted old scores: {'n': 0, 'ok': 1.0}
+2018-11-29 19:45:37,086 - INFO - Topics check, nothing changes, keywords: ['#stephencurry', '#tesla', '#elonmusk', '#trump', '#election2018', '#nicki', '#minaj', '#eminem', '#rap']
+2018-11-29 19:48:04,576 - INFO - Tweepy Config - {'consumer_key': 'EDEHVD09dN7cdIJMPr4D47eYp', 'consumer_secret': 'jTQFOvigDTHu4Lusb7rJ3kCX0RkimTEX1iZaFl0MloKMuhB1Tb', 'access_token': '3932937014-ULiqX7aTSxpHEQOHEncUL2w6YT3tEzvbyYpseea', 'access_token_secret': 'CdGTXhyJX9qkBO3MeqRAZne6Cv4MPPKWDMlUuMz3DTNcV'}
+2018-11-29 19:48:04,578 - INFO - MongoDB Config Url - mongodb://18.144.22.172:20087/
+2018-11-29 19:48:04,686 - INFO - deleted old scores: {'n': 0, 'ok': 1.0}
+2018-11-29 19:48:04,720 - INFO - Topics initialized from DB: ['', 'curry', 'tesla', 'trump', 'politic', 'Rap'], keywords: ['#stephencurry', '#tesla', '#elonmusk', '#trump', '#election2018', '#nicki', '#minaj', '#eminem', '#rap']
+2018-11-29 19:48:38,801 - INFO - Tweepy Config - {'consumer_key': 'EDEHVD09dN7cdIJMPr4D47eYp', 'consumer_secret': 'jTQFOvigDTHu4Lusb7rJ3kCX0RkimTEX1iZaFl0MloKMuhB1Tb', 'access_token': '3932937014-ULiqX7aTSxpHEQOHEncUL2w6YT3tEzvbyYpseea', 'access_token_secret': 'CdGTXhyJX9qkBO3MeqRAZne6Cv4MPPKWDMlUuMz3DTNcV'}
+2018-11-29 19:48:38,804 - INFO - MongoDB Config Url - mongodb://18.144.22.172:20087/
+2018-11-29 19:48:38,898 - INFO - deleted old scores: {'n': 0, 'ok': 1.0}
+2018-11-29 19:48:38,932 - INFO - Topics initialized from DB: ['', 'curry', 'tesla', 'trump', 'politic', 'Rap'], keywords: ['#stephencurry', '#tesla', '#elonmusk', '#trump', '#election2018', '#nicki', '#minaj', '#eminem', '#rap']
+2018-11-29 19:48:54,147 - INFO - Tweepy Config - {'consumer_key': 'EDEHVD09dN7cdIJMPr4D47eYp', 'consumer_secret': 'jTQFOvigDTHu4Lusb7rJ3kCX0RkimTEX1iZaFl0MloKMuhB1Tb', 'access_token': '3932937014-ULiqX7aTSxpHEQOHEncUL2w6YT3tEzvbyYpseea', 'access_token_secret': 'CdGTXhyJX9qkBO3MeqRAZne6Cv4MPPKWDMlUuMz3DTNcV'}
+2018-11-29 19:48:54,149 - INFO - MongoDB Config Url - mongodb://18.144.22.172:20087/
+2018-11-29 19:48:54,242 - INFO - deleted old scores: {'n': 0, 'ok': 1.0}
+2018-11-29 19:48:54,271 - INFO - Topics initialized from DB: ['', 'curry', 'tesla', 'trump', 'politic', 'Rap'], keywords: ['#stephencurry', '#tesla', '#elonmusk', '#trump', '#election2018', '#nicki', '#minaj', '#eminem', '#rap']
+2018-11-29 19:51:44,118 - INFO - Tweepy Config - {'consumer_key': 'EDEHVD09dN7cdIJMPr4D47eYp', 'consumer_secret': 'jTQFOvigDTHu4Lusb7rJ3kCX0RkimTEX1iZaFl0MloKMuhB1Tb', 'access_token': '3932937014-ULiqX7aTSxpHEQOHEncUL2w6YT3tEzvbyYpseea', 'access_token_secret': 'CdGTXhyJX9qkBO3MeqRAZne6Cv4MPPKWDMlUuMz3DTNcV'}
+2018-11-29 19:51:44,123 - INFO - MongoDB Config Url - mongodb://18.144.22.172:20087/
+2018-11-29 19:51:44,252 - INFO - deleted old scores: {'n': 0, 'ok': 1.0}
+2018-11-29 19:51:44,279 - INFO - Topics initialized from DB: ['', 'curry', 'tesla', 'trump', 'politic', 'Rap'], keywords: ['#stephencurry', '#tesla', '#elonmusk', '#trump', '#election2018', '#nicki', '#minaj', '#eminem', '#rap']
+2018-11-29 19:51:46,533 - INFO - Twitter Received - {'id': 1068351835415683072, 'score': 0.0, 'text': 'All i can be. #music #riff #guitarist #art #artist #love #poetry #musician #war #peace #yemmen #syria #israel #dwp #trump #palestine #humanrights #freemusic https://t.co/oWXYwAHbXo 5'}
+2018-11-29 19:51:46,533 - INFO - Counter Update - {'topic': 'trump', 'counter': 0.0, 'counter_size': 1}
+2018-11-29 19:51:47,517 - INFO - Twitter Received - {'id': 1068351839555502081, 'score': 0.0, 'text': '#rap #rapmusic #hiphop #rapper #write #writer #artist #art #live #love #life #people #we #us #power #indie #creative #create #share #promo #poetry #poetic #a #1 #image #images #photo… https://t.co/1JVvTTvF6i'}
+2018-11-29 19:51:47,517 - INFO - Counter Update - {'topic': 'Rap', 'counter': 0.0, 'counter_size': 1}
+2018-11-29 19:51:55,031 - INFO - Twitter Received - {'id': 1068351871394480129, 'score': 0.296, 'text': "Finally, a critical mass of GOP Senators who have decided to protect the US judicial system from the Federalist Society's libertarian attempts to stack the court.\n\n#ThursdayThoughts #maga? #trump?"}
+2018-11-29 19:51:55,031 - INFO - Counter Update - {'topic': 'trump', 'counter': 0.296, 'counter_size': 2}
+2018-11-29 19:52:05,956 - INFO - Twitter Received - {'id': 1068351917116420096, 'score': -0.9287, 'text': 'This lying crisis actor should be in prison for his stupidity.  Follow:  @deplorablearmyg\nTwitter:  deplorablearmyg\n#trump #maga #votered #usa #liberty #murica #conservative #buildthewall… https://t.co/McaANTLiYL'}
+2018-11-29 19:52:05,957 - INFO - Counter Update - {'topic': 'trump', 'counter': -0.6327, 'counter_size': 3}
+2018-11-29 19:52:22,999 - INFO - Tweepy Config - {'consumer_key': 'EDEHVD09dN7cdIJMPr4D47eYp', 'consumer_secret': 'jTQFOvigDTHu4Lusb7rJ3kCX0RkimTEX1iZaFl0MloKMuhB1Tb', 'access_token': '3932937014-ULiqX7aTSxpHEQOHEncUL2w6YT3tEzvbyYpseea', 'access_token_secret': 'CdGTXhyJX9qkBO3MeqRAZne6Cv4MPPKWDMlUuMz3DTNcV'}
+2018-11-29 19:52:23,001 - INFO - MongoDB Config Url - mongodb://18.144.22.172:20087/
+2018-11-29 19:52:23,082 - INFO - deleted old scores: {'n': 0, 'ok': 1.0}
+2018-11-29 19:52:23,105 - INFO - Topics initialized from DB: ['', 'curry', 'tesla', 'trump', 'politic', 'Rap'], keywords: ['#stephencurry', '#tesla', '#elonmusk', '#trump', '#election2018', '#nicki', '#minaj', '#eminem', '#rap']
+2018-11-29 19:52:27,978 - INFO - Twitter Received - {'id': 1068352009571586048, 'score': -0.4939, 'text': '@realDonaldTrump Tough guy and conman #trump will crash soon #prison #mueller #usa #donaldtrump'}
+2018-11-29 19:52:27,978 - INFO - Counter Update - {'topic': 'trump', 'score': -0.4939, 'counter_size': 1}
+2018-11-29 19:52:35,656 - INFO - Twitter Received - {'id': 1068352037371502592, 'score': 0.0, 'text': 'Do your thing twitter. I’m up next. #rap https://t.co/5tSvBwSGYi'}
+2018-11-29 19:52:35,656 - INFO - Counter Update - {'topic': 'Rap', 'score': 0.0, 'counter_size': 2}
+2018-11-29 19:52:42,943 - INFO - Twitter Received - {'id': 1068352072314163200, 'score': 0.0, 'text': 'You’ll get your indictment, hang on Donny!\n\n#embarassment #trump #putin #russia #ticktock #bribe #penthouse #moscow #mueller #cohen'}
+2018-11-29 19:52:42,943 - INFO - Counter Update - {'topic': 'trump', 'score': -0.4939, 'counter_size': 3}
+2018-11-29 19:52:43,973 - INFO - Twitter Received - {'id': 1068352076948938752, 'score': 0.0, 'text': '10th dec 🤤 #dj #traprymes #new #musician #typebeats #hiphop #producers #freestyle #indieartist #instamusic #dance #spotify #house #hiphopculture #deephouse #tune #time #hipster #techno #rave #high #chill #producer #edm #trap #club #rap #aquaryde \n#worldwide #apple #theshaderoom'}
+2018-11-29 19:52:43,974 - INFO - Counter Update - {'topic': 'Rap', 'score': 0.0, 'counter_size': 4}
+2018-11-29 19:52:44,015 - INFO - Twitter Received - {'id': 1068352077116649472, 'score': 0.296, 'text': "Ok so now we know why we will never see #trump's tax papers voluntarily produced."}
+2018-11-29 19:52:44,015 - INFO - Counter Update - {'topic': 'trump', 'score': -0.19790000000000002, 'counter_size': 4}

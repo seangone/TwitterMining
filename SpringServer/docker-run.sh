@@ -1,1 +1,0 @@
-docker run --name tmserver -it seangone/tmserver

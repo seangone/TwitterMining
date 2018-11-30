@@ -107,11 +107,12 @@ class MyStreamListener(tweepy.StreamListener):
         assert isinstance(self.router, topicrouter)
 
     def on_error(self, status_code):
+        logger.error("ERROR ON Stream listener, CODE {}".format(status_code))
         if status_code == 420:
             #returning False in on_error disconnects the stream
-            return False
+            # return False
             # returning non-False reconnects the stream, with backoff.
-            # return True
+            return True
 
     def on_status(self, status):
         # route status to the corresponding topic
@@ -124,9 +125,13 @@ class MyStreamListener(tweepy.StreamListener):
         text = get_status_text(status)
         score = cal_sentimental_score(text)
         counter.add(score)
-        print(status._json)
-        print(id, "-----", score, text)
-        print(topic_name, counter(), len(counter))
+        # print(status._json)
+        logger.info("Twitter Received - {}".format({
+            "id": id, "score": score, "text": text
+        }))
+        logger.info("Counter Update - {}".format({
+            "topic": topic_name, "score": counter(), "counter_size": len(counter)
+        }))
         # Store score to MongoDB
         writedb_sentimental_score(self.db, topic_name, time.time(), counter(), id)
         # db.sentiments.find({"topic": "Donald Trump"}).sort({"timestamp": -1}).limit(1)

@@ -1,8 +1,7 @@
 # run in the server
-
-docker pull 127.0.0.1:5000/seangone/twittercrawler
-docker pull 127.0.0.1:5000/seangone/twittermining
-docker pull 127.0.0.1:5000/seangone/tmfrontend
+docker pull 18.144.22.172:5000/seangone/twittercrawler
+docker pull 18.144.22.172:5000/seangone/twittermining
+docker pull 18.144.22.172:5000/seangone/tmfrontend
 
 docker stop tmcrawler
 docker stop tmserver

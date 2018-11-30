@@ -85,6 +85,15 @@ E --> |scored tweets| F[Router]
 F --> |topic sentimental scores| B2(End: MongoDB)
 ​```
 
+## Work Flow
+
+Steps:
+
+1. Code on my Macbook, push them to Github (on my Macbook)
+2. Build/Package applications (on my Macbook)
+3. Dockerize the service and upload the images to my private registry server (on my Macbook)
+4. Deploy service using Docker and Docker Compose (on Amazon EC2)
+
 
 ## Reference
 

@@ -1,1 +1,0 @@
-docker run --name tmcrawler -it -v "$PWD"/app_log:/app/app_log seangone/twittercrawler

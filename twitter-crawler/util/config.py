@@ -5,5 +5,5 @@ twitter_api_config = {'consumer_key': "EDEHVD09dN7cdIJMPr4D47eYp",
 
 mongodb_config = {'url': "mongodb://18.144.22.172:20087/"}
 
-CHECK_INTERVAL = 120
+CHECK_INTERVAL = 60
 RESIST_TIME = 86400
